@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行為驅動牌卡</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Playfair Display (Serif) for headings, Noto Sans TC (Sans) for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="magazine-header">
+        <div class="header-content">
+            <span class="issue-number">VOL. 01</span>
+            <h1>行為驅動牌卡</h1>
+            <p class="subtitle">接案 <span class="divider">X</span> 職涯引導師</p>
+        </div>
+        <div class="header-decoration"></div>
+    </header>
+
+    <main>
+        <!-- Step 1: Input Area -->
+        <section id="step1" class="magazine-section">
+            <div class="section-title">
+                <span class="step-num">01.</span>
+                <h3>設定情境與角色</h3>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="context">SCENARIO / 設定情境</label>
+                    <textarea id="context" placeholder="請描述您目前面臨的具體情境..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="role">ROLE / 設定角色</label>
+                    <input type="text" id="role" placeholder="您的角色 (例如：專案經理)">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Card Selection -->
+        <section id="step2" class="magazine-section">
+            <div class="section-header">
+                <div class="section-title">
+                    <span class="step-num">02.</span>
+                    <h3>選擇牌卡</h3>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-label">SELECTED</span>
+                    <span id="counter">0 / 12</span>
+                </div>
+            </div>
+            <p class="instruction-text">請直覺選出符合您心境的 10 到 12 張牌卡</p>
+
+            <div id="card-grid" class="grid-container">
+                <!-- Cards will be injected by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Step 3: Submit -->
+        <section id="step3" class="magazine-section action-section">
+            <button id="submit-btn" class="mag-btn primary-btn">送出資料 <span class="arrow">→</span></button>
+            <p id="status-message"></p>
+
+            <div class="separator-line"></div>
+
+            <button id="reset-btn" class="mag-btn secondary-btn">再填寫一次 ↻</button>
+        </section>
+    </main>
+
+    <footer class="magazine-footer">
+        <p>© 2026 Behavioral Driver Cards. Designed for Career Growth.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

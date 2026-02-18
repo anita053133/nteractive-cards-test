@@ -1,0 +1,471 @@
+/* Global Styles */
+:root {
+    /* Magazine Palette */
+    --mag-bg: #f9f7f4;
+    /* Off-white paper */
+    --mag-primary: #1a1a1a;
+    /* Deep black for text */
+    --mag-accent: #c0392b;
+    /* Editorial Red */
+    --mag-gold: #bfa57d;
+    /* Gold accent */
+    --mag-border: #e0e0e0;
+
+    /* Category Colors - Keeping functional */
+    --green-border: #2e7d32;
+    --green-bg-light: #e8f5e9;
+    --red-border: #c62828;
+    --red-bg-light: #ffebee;
+    --orange-border: #f57f17;
+    --orange-bg-light: #fff8e1;
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--mag-bg);
+    color: var(--mag-primary);
+    margin: 0;
+    padding: 0;
+    /* Reset */
+    line-height: 1.8;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header - Magazine Cover Style */
+.magazine-header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    border-bottom: 5px solid var(--mag-primary);
+    margin-bottom: 4rem;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.issue-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: var(--mag-gold);
+    font-weight: 700;
+}
+
+.magazine-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--mag-primary);
+    position: relative;
+    display: inline-block;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #555;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+.divider {
+    color: var(--mag-accent);
+    font-weight: bold;
+    margin: 0 0.5rem;
+}
+
+/* Sections */
+.magazine-section {
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 1rem;
+}
+
+.step-num {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--mag-gold);
+    margin-right: 1.5rem;
+    line-height: 1;
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 0;
+    color: var(--mag-primary);
+    font-weight: 700;
+}
+
+/* Step 1 Inputs - Refined */
+.input-container {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    background: #fff;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eee;
+}
+
+@media (min-width: 900px) {
+    .input-container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.input-group label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: var(--mag-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+textarea,
+input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 0;
+    /* Only bottom border initially */
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: #333;
+    transition: all var(--transition-speed);
+    box-sizing: border-box;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-bottom-color: var(--mag-primary);
+    background: rgba(0, 0, 0, 0.02);
+    padding-left: 1rem;
+    /* Indent on focus */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* Step 2 Header & Counter */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--mag-primary);
+    padding-bottom: 1rem;
+}
+
+/* Override previous .section-title bottom border inside container */
+.section-header .section-title {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.counter-box {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.counter-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: #999;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#counter {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    /* Giant number style */
+    font-weight: 700;
+    color: #ddd;
+    /* Default inactive color */
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+#counter.valid {
+    color: var(--mag-accent);
+    /* Valid color */
+}
+
+.instruction-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.instruction-text::before,
+.instruction-text::after {
+    content: '—';
+    color: var(--mag-gold);
+    margin: 0 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Magazine Card Style */
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    min-height: 140px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: #ccc;
+    z-index: 10;
+}
+
+.card span {
+    font-size: 1.05rem;
+    font-weight: 600;
+    /* Bolder text for magazine feel */
+    color: #444;
+}
+
+/* Category Indicators - Subtle but distinct strips */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.category-green::before {
+    background-color: var(--green-border);
+}
+
+.category-red::before {
+    background-color: var(--red-border);
+}
+
+.category-orange::before {
+    background-color: var(--orange-border);
+}
+
+/* Selection State - High contrast */
+.category-green.selected {
+    background-color: var(--green-bg-light);
+    border-color: var(--green-border);
+}
+
+.category-red.selected {
+    background-color: var(--red-bg-light);
+    border-color: var(--red-border);
+}
+
+.category-orange.selected {
+    background-color: var(--orange-bg-light);
+    border-color: var(--orange-border);
+}
+
+.card.selected {
+    transform: scale(0.98);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.card.selected::before {
+    width: 100%;
+    /* Fill background effect via pseudoelement could be cool, but sticking to solid colour change for reliability */
+    width: 6px;
+    /* Keep strip */
+}
+
+/* Checkmark using typography */
+.card.selected::after {
+    top: 5px;
+    right: 5px;
+    font-family: var(--font-heading);
+    font-style: italic;
+}
+
+
+/* Action Section */
+.action-section {
+    text-align: center;
+    background: #fff;
+    padding: 4rem 2rem;
+    border: 1px solid var(--mag-primary);
+    position: relative;
+}
+
+/* Outline decoration */
+.action-section::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid #eee;
+    pointer-events: none;
+}
+
+.mag-btn {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+/* Primary Button */
+.primary-btn {
+    background-color: var(--mag-primary);
+    color: #fff;
+    padding: 1.2rem 4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn:hover {
+    background-color: var(--mag-accent);
+    padding-right: 5rem;
+    /* Slide arrow effect space */
+}
+
+.primary-btn .arrow {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.primary-btn:hover .arrow {
+    transform: translateX(10px);
+}
+
+.primary-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Secondary Reset Button */
+.secondary-btn {
+    background: transparent;
+    color: #888;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    margin-top: 1rem;
+}
+
+.secondary-btn:hover {
+    color: var(--mag-primary);
+    border-color: var(--mag-primary);
+    background: #fcfcfc;
+}
+
+.separator-line {
+    height: 1px;
+    background: #eee;
+    width: 100px;
+    margin: 2rem auto;
+}
+
+/* Status Message */
+#status-message {
+    margin-top: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.error-msg {
+    color: var(--mag-accent);
+}
+
+.success-msg {
+    color: var(--green-border);
+}
+
+/* Footer */
+.magazine-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #ddd;
+    color: #999;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-top: 4rem;
+}
