@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
     const contextInput = document.getElementById('context');
     const roleInput = document.getElementById('role');
+    const emailInput = document.getElementById('email');
     const statusMessage = document.getElementById('status-message');
 
     // Initialize
@@ -114,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.addEventListener('click', async () => {
         const context = contextInput.value.trim();
         const role = roleInput.value.trim();
+        const email = emailInput.value.trim();
         const count = selectedCards.size;
 
         // Validation
@@ -128,6 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!role) {
             showStatus('請填寫「設定角色」欄位', 'error-msg');
             roleInput.focus();
+            return;
+        }
+        if (!email) {
+            showStatus('請填寫「電子郵件」欄位', 'error-msg');
+            emailInput.focus();
+            return;
+        }
+        // Simple email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showStatus('請輸入正確格式的電子郵件', 'error-msg');
+            emailInput.focus();
             return;
         }
         if (count < REQUIRED_MIN) {
@@ -152,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const payload = {
             context: context,
             role: role,
+            email: email,
             selected_cards: selectedCardsText
         };
 
@@ -209,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = disabled;
         contextInput.disabled = disabled;
         roleInput.disabled = disabled;
+        emailInput.disabled = disabled;
         submitBtn.textContent = disabled ? 'SENDING...' : '送出資料 →';
     }
 
@@ -220,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Clear inputs
                 contextInput.value = '';
                 roleInput.value = '';
+                emailInput.value = '';
 
                 // Clear selection
                 selectedCards.clear();
